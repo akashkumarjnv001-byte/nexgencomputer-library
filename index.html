@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NexGen Digital Library & Library – Bachhrawan, Raebareli</title>
+  <meta name="description" content="NexGen Digital Coaching & Computer Institute with Library – AC room, Wi‑Fi, cold water, Hindi & English classes, separate girls' batches, online classes, projector-enabled digital learning, scholarship for meritorious students, and monthly online tests." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;          /* deep navy */
+      --card:#111632;        /* slightly lighter */
+      --accent:#4ade80;      /* green */
+      --accent2:#60a5fa;     /* blue */
+      --text:#e5e7eb;        /* light gray */
+      --muted:#9ca3af;       /* gray */
+      --warning:#f59e0b;     /* amber */
+      --danger:#ef4444;      /* red */
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:
+        radial-gradient(60vw 60vw at 10% 10%, rgba(96,165,250,.15), transparent 60%),
+        radial-gradient(60vw 60vw at 90% 20%, rgba(74,222,128,.12), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1200px,92%); margin-inline:auto}
+    /* Navbar */
+    .nav{position:sticky; top:0; z-index:50; background:rgba(11,16,32,.7); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; gap:.6rem; align-items:center}
+    .logo{width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, var(--accent2), var(--accent)); display:grid; place-items:center; color:#06121c; font-weight:800}
+    .brand h1{font-size:1rem; margin:0; line-height:1.1}
+    .brand small{display:block; color:var(--muted)}
+    .nav a{padding:.55rem .8rem; border-radius:12px}
+    .nav a:hover{background:rgba(96,165,250,.12)}
+    .menu{display:flex; gap:.25rem; flex-wrap:wrap}
+    @media (max-width:900px){.menu{display:none}}
+    .menu-btn{display:none}
+    @media (max-width:900px){.menu-btn{display:block;}}
+
+    /* Hero */
+    .hero{padding:5rem 0 3rem; position:relative}
+    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:2rem}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .hibadge{display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .7rem; border:1px solid rgba(255,255,255,.15); border-radius:999px; color:var(--muted); margin-bottom:1rem}
+    .title{font-size:clamp(2rem, 3.2vw, 3.5rem); margin:.2rem 0 1rem; line-height:1.1}
+    .gradient{background:linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .lead{color:#cbd5e1; font-size:1.05rem}
+    .hero-card{background:linear-gradient(180deg, rgba(96,165,250,.14), rgba(74,222,128,.10)); border:1px solid rgba(255,255,255,.08); padding:1rem; border-radius:18px}
+
+    /* Sections */
+    section{padding:3.5rem 0}
+    .sec-title{font-size:1.8rem; margin:0 0 1.2rem}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block; padding:.25rem .6rem; border:1px solid rgba(255,255,255,.14); border-radius:999px; margin:.25rem .25rem .25rem 0; font-size:.9rem}
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+    @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:650px){.cards{grid-template-columns:1fr}}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); padding:1rem; border-radius:18px}
+    .stamp{display:inline-flex; gap:.4rem; align-items:center; font-weight:600; color:var(--accent)}
+    .price{font-size:1.6rem; font-weight:700}
+
+    /* Timetable */
+    .table{width:100%; border-collapse:separate; border-spacing:0 .6rem}
+    .table th{color:#93c5fd; text-align:left; font-weight:600; padding:.7rem .9rem}
+    .table td{padding:1rem .9rem; background:var(--card); border:1px solid rgba(255,255,255,.08)}
+    .table tr td:first-child{border-top-left-radius:12px; border-bottom-left-radius:12px}
+    .table tr td:last-child{border-top-right-radius:12px; border-bottom-right-radius:12px}
+
+    /* Gallery / Team */
+    .gallery{display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem}
+    @media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.gallery{grid-template-columns:1fr}}
+    .person{position:relative; overflow:hidden; border-radius:16px; background:#0f172a; border:1px solid rgba(255,255,255,.08)}
+    .person img{width:100%; height:260px; object-fit:cover; display:block; filter:saturate(1.1)}
+    .person .info{padding:.9rem}
+    .person .role{color:var(--muted); font-size:.9rem}
+    .person .say{position:absolute; inset:auto 0 0 0; background:linear-gradient(0deg, rgba(0,0,0,.75), rgba(0,0,0,0)); padding:1rem; transform:translateY(100%); transition:transform .35s}
+    .person:hover .say{transform:translateY(0%)}
+
+    /* Contact / Form */
+    form{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+    @media (max-width:700px){form{grid-template-columns:1fr}}
+    input, select, textarea{width:100%; padding:.9rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1228; color:var(--text)}
+    textarea{min-height:130px}
+    button{cursor:pointer; border:0; border-radius:12px; padding:.85rem 1.1rem; font-weight:600}
+    .btn{background:linear-gradient(90deg, var(--accent2), var(--accent)); color:#04131f}
+    .btn-outline{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.18)}
+
+    /* Floating buttons */
+    .floaters{position:fixed; right:1rem; bottom:1rem; display:flex; flex-direction:column; gap:.5rem; z-index:60}
+    .fab{display:flex; align-items:center; gap:.6rem; padding:.7rem 1rem; border-radius:999px; background:#10b981; color:#00131a; font-weight:700; box-shadow:0 10px 25px rgba(0,0,0,.25)}
+    .fab.call{background:#38bdf8}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s}
+    .reveal.show{opacity:1; transform:translateY(0)}
+
+    footer{border-top:1px solid rgba(255,255,255,.08); padding:2rem 0; color:var(--muted)}
+    .kicker{display:flex; gap:.6rem; align-items:center; color:#9de2b9; font-weight:600}
+    .chips{display:flex; flex-wrap:wrap; gap:.5rem}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">NG</div>
+        <div>
+          <h1>NexGen Digital Coaching & Computer Institute</h1>
+          <small>with Library • Bachhrawan, Raebareli</small>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#library">Library</a>
+        <a href="#classes">Computer Classes</a>
+        <a href="#team">Gallery & Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="menu-btn btn-outline" href="#contact">Enquire</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero container">
+    <div class="grid">
+      <div>
+        <div class="hibadge">Empowering minds through <b style="color:#fff">Knowledge</b> & <b style="color:#fff">Technology</b></div>
+        <h2 class="title">Learn smart in our <span class="gradient">AC Wi‑Fi campus</span> with digital projector classes, scholarships & online tests.</h2>
+        <p class="lead">Near Adi Nagar Road, Bachhrawan, Raebareli • Hindi & English classes • Separate batches for girls • Online class facilities • Best environment with cold water.</p>
+        <div class="chips" style="margin-top:1rem">
+          <span class="pill">AC Room</span>
+          <span class="pill">High‑Speed Wi‑Fi</span>
+          <span class="pill">Cold Water</span>
+          <span class="pill">Projector Enabled</span>
+          <span class="pill">Scholarship (Honhār Students)</span>
+          <span class="pill">Monthly Online Test</span>
+          <span class="pill">Certificate Provided</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3 style="margin:0 0 .6rem">Library & Study Timings</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Slot</th>
+              <th>Timing</th>
+              <th>Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Full Day</td>
+              <td>8:00 AM – 8:00 PM</td>
+              <td class="price">₹800</td>
+            </tr>
+            <tr>
+              <td>Morning Half Day</td>
+              <td>8:00 AM – 2:00 PM</td>
+              <td class="price">₹500</td>
+            </tr>
+            <tr>
+              <td>Evening Half Day</td>
+              <td>2:00 PM – 8:00 PM</td>
+              <td class="price">₹500</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted" style="margin:.6rem 0 0">Fees include access to AC study room, Wi‑Fi & purified cold water.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h3 class="sec-title">About Us</h3>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="stamp">🎓 Institute</div>
+          <p>NexGen blends <b>Library</b> discipline with <b>Computer</b> skills. We provide a calm study environment and hands‑on labs with daily theory + lab practice.</p>
+          <div class="chips">
+            <span class="pill">Daily Theory & Lab</span>
+            <span class="pill">Multiple Batches</span>
+            <span class="pill">Hindi & English</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="stamp">💻 Courses</div>
+          <p>All major courses available: ADCA, O' Level, CCC, PGDCA, BCC, DCA, CPAC, DSAD, CTTC, Tally, Yoga, Hindi & English Typing, MS Excel and more.</p>
+          <div class="chips">
+            <span class="pill">Beginners to Advanced</span>
+            <span class="pill">Certificates Provided</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="stamp">⭐ Opportunities</div>
+          <p>Honhār (meritorious) students can get <b>scholarships</b>. We also conduct <b>monthly online tests</b> to track progress and readiness.</p>
+          <div class="chips">
+            <span class="pill">Scholarship</span>
+            <span class="pill">Online Tests</span>
+            <span class="pill">Career Guidance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Library -->
+  <section id="library">
+    <div class="container">
+      <h3 class="sec-title">Library</h3>
+      <p class="muted">Quiet, comfortable, and student‑friendly library near Adi Nagar Road. AC room, Wi‑Fi, cold water – everything set for long study sessions.</p>
+      <div class="cards">
+        <div class="card reveal">
+          <h4>Facilities</h4>
+          <ul>
+            <li>AC Reading Room</li>
+            <li>High‑speed Wi‑Fi</li>
+            <li>Cold & purified water</li>
+            <li>Separate girls’ seating available</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>Timings & Plans</h4>
+          <p>Choose Full Day or Half Day according to your schedule. See fees above.</p>
+          <a class="btn" href="#contact">Get Membership</a>
+        </div>
+        <div class="card reveal">
+          <h4>Location</h4>
+          <p>Library Coordinates: <b>26.4726121, 81.1098015</b></p>
+          <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1)">
+            <iframe title="Library Map" width="100%" height="220" style="border:0" loading="lazy" allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=26.4726121,81.1098015&z=16&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Computer Classes -->
+  <section id="classes">
+    <div class="container">
+      <h3 class="sec-title">Computer Classes</h3>
+      <div class="cards">
+        <div class="card reveal">
+          <h4>Available Courses</h4>
+          <p>ADCA, O' Level, CCC, PGDCA, BCC, DCA, CPAC, DSAD, CTTC, Tally, Yoga, Hindi & English Typing, MS Excel, and more.</p>
+          <div class="chips">
+            <span class="pill">Daily Theory</span>
+            <span class="pill">Daily Lab</span>
+            <span class="pill">Projector Classes</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h4>Batches & Languages</h4>
+          <ul>
+            <li>Multiple batches (morning / afternoon / evening)</li>
+            <li>Classes in <b>Hindi</b> & <b>English</b></li>
+            <li>Separate classes for <b>girls</b></li>
+            <li><b>Online class</b> facilities available</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h4>Exams & Certificates</h4>
+          <p>Monthly <b>online tests</b> and practice. <b>Certificate</b> provided by NexGen after successful completion.</p>
+          <div class="chips">
+            <a class="pill" href="#contact">Ask for Syllabus</a>
+            <a class="pill" href="#contact">Next Batch Dates</a>
+          </div>
+        </div>
+      </div>
+      <div class="card reveal" style="margin-top:1rem">
+        <h4>Institute Location</h4>
+        <p>Open in Google Maps: <a class="pill" target="_blank" rel="noopener" href="https://maps.app.goo.gl/8tgJUsQg5xyqFXrt7">NexGen Digital Coaching & Computer Institute</a></p>
+        <p class="muted">(Tap the link to navigate.)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery & Team -->
+  <section id="team">
+    <div class="container">
+      <h3 class="sec-title">Gallery & Meet Our Team</h3>
+
+      <div class="card reveal" style="margin-bottom:1rem">
+        <h4>Owner's Message – Lalit verma </h4>
+        <p>“At NexGen, we blend knowledge with technology so every student learns faster and better. My goal is to make quality learning accessible to all in Bachhrawan.”</p>
+      </div>
+
+      <div class="gallery">
+        <!-- Owner / Principal highlight card -->
+        <div class="person reveal">
+          <img src="lalit.jpg" alt="Teacher – Lalit" />
+          <div class="info">
+            <strong>Lalit verma</strong>
+            <div class="role">Owner / Director</div>
+          </div>
+          <div class="say">“Welcome to NexGen! Join our community and grow with guidance, discipline, and technology.”</div>
+        </div>
+
+        <!-- Example Teachers (replace images & names later) -->
+        <div class="person reveal">
+          <<img src="ankit.jpg" alt="Teacher – Ankit Verma" />
+<div class="info">
+            <strong>Mr. Ankit verma</strong>
+            <div class="role">Computer Instructor</div>
+          </div>
+          <div class="say">“I focus on practical learning so students are job‑ready.”</div>
+        </div>
+
+        <div class="person reveal">
+          <img src=" alt="Teacher – Ananya" />
+          <div class="info">
+            <strong>Ms. Ananya tiwari</strong>
+            <div class="role">Typing & MS Office Trainer</div>
+          </div>
+          <div class="say">“Consistency and practice are the keys to mastery.”</div>
+        </div>
+
+        <div class="person reveal">
+          <img src="library manager.jpg" alt="Library Manager – Anil" />
+          <div class="info">
+            <strong>Mr. Shashi kant</strong>
+            <div class="role">Library Manager</div>
+          </div>
+          <div class="say">“Our library is your second home—quiet, resourceful, and welcoming.”</div>
+        </div>
+
+        <!-- Facilities Photos (placeholders) -->
+        <div class="person reveal">
+          <img src="computer lap.jpg" alt="Computer Lab" />
+          <div class="info"><strong>Computer Lab</strong><div class="role">Daily Theory + Lab</div></div>
+          <div class="say">Projector‑enabled digital classes with Wi‑Fi.</div>
+        </div>
+        <div class="person reveal">
+          <img src="library2.jpg" alt="Library Room" />
+          <div class="info"><strong>Library Room</strong><div class="role">AC & Cold Water</div></div>
+          <div class="say">Peaceful study environment for long hours.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h3 class="sec-title">Contact & Inquiry</h3>
+      <div class="cards">
+        <div class="card reveal">
+          <h4>Send us an inquiry</h4>
+          <form id="inquiryForm">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" placeholder="Your phone" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" placeholder="your@email.com" type="email" />
+            </div>
+            <div>
+              <label for="interest">Interested In</label>
+              <select id="interest" name="interest" required>
+                <option value="Library">Library</option>
+                <option value="Computer Classes">Computer Classes</option>
+                <option value="Both">Both</option>
+              </select>
+            </div>
+            <div style="grid-column:1/-1">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Your question (timings, batches, fees, etc.)"></textarea>
+            </div>
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; grid-column:1/-1">
+              <button type="submit" class="btn">Send via WhatsApp</button>
+              <button type="button" class="btn-outline" id="emailBtn">Send via Email</button>
+            </div>
+          </form>
+          <p class="muted" style="margin-top:.6rem">Or call / WhatsApp using the floating buttons.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Contact Details</h4>
+          <p><b>Phone:</b> <a href="tel:+918052504508">+91 80525 04508</a></p>
+          <p><b>Email:</b> <a href="mailto:akashbcnrbljnv@gmail.com">akashbcnrbljnv@gmail.com</a></p>
+          <p><b>Institute Map:</b> <a target="_blank" rel="noopener" href="https://maps.app.goo.gl/8tgJUsQg5xyqFXrt7">Open Google Maps</a></p>
+          <p><b>Library Co‑ordinates:</b> 26.4726121, 81.1098015</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="kicker">✅ Serving students with discipline & technology since Day 1</div>
+      <div style="margin-top:.6rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+        <div>© <span id="year"></span> NexGen Digital Coaching & Computer Institute – Bachhrawan, Raebareli | Made by -Ankul Patel</div>
+        <div class="chips">
+          <span class="pill">AC Room</span>
+          <span class="pill">Wi‑Fi</span>
+          <span class="pill">Projector</span>
+          <span class="pill">Scholarship</span>
+          <span class="pill">Online Tests</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp & Call Buttons -->
+  <div class="floaters">
+    <a class="fab" id="waFab" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="fab call" href="tel:+918052504508">📞 Call</a>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    }, {threshold: .14});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // WhatsApp FAB + Form sender
+    const PHONE = '918052504508'; // without +
+    const waFab = document.getElementById('waFab');
+    waFab.href = `https://wa.me/${PHONE}?text=${encodeURIComponent('Hi NexGen, I want to know about courses/library.')}`;
+
+    function buildMessage(){
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const interest = document.getElementById('interest').value;
+      const msg = document.getElementById('message').value.trim();
+      return `Inquiry via Website%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AInterested In: ${interest}%0AMessage: ${msg}`;
+    }
+
+    document.getElementById('inquiryForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const url = `https://wa.me/${PHONE}?text=${buildMessage()}`;
+      window.open(url, '_blank');
+    });
+
+    document.getElementById('emailBtn').addEventListener('click', ()=>{
+      const subject = encodeURIComponent('Inquiry – NexGen Digital Coaching & Library');
+      const body = buildMessage().replaceAll('%0A','\n');
+      window.location.href = `mailto:akashbcnrbljnv@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
