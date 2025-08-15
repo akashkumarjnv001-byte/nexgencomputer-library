@@ -15,18 +15,33 @@
 </head>
 <body>
 
-<!-- 🟡 Notice Banner (visible only on set date) -->
-<div id="notice" style="display:none; background:#ff9800; color:#fff; padding:10px; text-align:center; font-size:18px; font-weight:bold;">
-  🎉 Independence Day Special – Free Typing Classes Today! 🎉
+<!-- Stylish Today's Notice Banner -->
+<div id="notice" style="display:none;">
+  <div style="
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    color: white;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-in-out;
+  ">
+    📢 Today Only: Enroll in ADCA & Get Free Typing Classes! 🎉
+  </div>
 </div>
-<h1>Welcome to NexGen Digital Coaching</h1>
-<p>Learn ADCA, DCA, Tally, and more...</p>
 
+<style>
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
 
 <script>
-  // Date when you want to show the notice (YYYY, MM-1, DD)
-  const showDate = new Date(2025, 7, 15); // August 15, 2025
-
+  // Show banner only if date matches
+  const showDate = new Date(2025, 7, 15); // 15 Aug 2025
   const today = new Date();
 
   if (
@@ -38,8 +53,6 @@
   }
 </script>
 
-</body>
-</html>
 
 
  <style>
