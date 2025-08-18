@@ -14,63 +14,73 @@
   <title>NexGen Digital Coaching</title>
 </head>
 <body>
-<!-- 🔥 NexGen Digital Coaching Ad Banner -->
-<div class="ad-banner">
-  <h2>🚀 Admissions Open 2025</h2>
-  <p>Join <b>NexGen Digital Coaching & Computer Institute</b><br>
-     Courses: ADCA, O’ Level, CCC, DCA, Tally, Typing & More</p>
-  <a href="https://wa.me/918299653404" target="_blank" class="btn">📲 Enroll Now</a>
+<!-- 🌐 NexGen Digital Coaching Futuristic 3D Banner -->
+<div class="futuristic-banner">
+  <div class="floating-particles"></div>
+  <h1>🚀 Admissions Open 2025</h1>
+  <p>Master Technology with <b>NexGen Digital Coaching & Computer Institute</b><br>
+     Courses: ADCA | O’ Level | CCC | DCA | PGDCA | Tally | Typing</p>
+  <a href="https://wa.me/918299653404" target="_blank" class="btn-3d">📲 Enroll Now</a>
 </div>
 
 <style>
-.ad-banner {
-  background: linear-gradient(135deg, #1a237e, #3949ab, #5c6bc0);
-  color: white;
-  text-align: center;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  animation: glow 3s infinite alternate;
+body {
+  margin: 0;
   font-family: "Poppins", sans-serif;
+  background: #0d0d0d;
 }
 
-.ad-banner h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  animation: slideDown 1s ease-in-out;
-}
-
-.ad-banner p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.ad-banner .btn {
-  background: #ffca28;
-  color: #1a237e;
-  padding: 12px 24px;
+/* 🔥 Futuristic Banner */
+.futuristic-banner {
+  position: relative;
+  text-align: center;
+  padding: 80px 20px;
   border-radius: 30px;
-  text-decoration: none;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+  animation: bgGlow 6s infinite alternate;
+}
+
+.futuristic-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px cyan, 0 0 30px #00e5ff;
+  animation: zoomIn 2s ease-in-out;
+}
+
+.futuristic-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #e0e0e0;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* 🚀 3D Button */
+.btn-3d {
+  background: linear-gradient(45deg, #00e5ff, #00c853);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
   font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 20px rgba(0, 229, 255, 0.6);
+  transition: all 0.4s ease;
+  perspective: 1000px;
+  display: inline-block;
+}
+.btn-3d:hover {
+  transform: rotateX(15deg) rotateY(15deg) scale(1.1);
+  box-shadow: 0 15px 40px rgba(0, 229, 255, 0.8);
 }
 
-.ad-banner .btn:hover {
-  background: #ffc107;
-  transform: scale(1.1);
-}
+/* 🌌 Animated Background Glow */
+@keyframes bgGlow {
+  from { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+  to
 
-/* 🔥 Animations */
-@keyframes glow {
-  from { box-shadow: 0 0 15px #ffca28; }
-  to { box-shadow: 0 0 40px #ffca28; }
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-</style>
 
 
 
