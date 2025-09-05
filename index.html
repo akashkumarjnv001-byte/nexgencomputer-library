@@ -14,6 +14,220 @@
   <title>NexGen Digital Coaching</title>
 </head>
 <body>
+<!-- ===== Festival Banner: Eid + Teacher's Day ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* tweak to match your palette */
+    --bg-1:#0b1220;           /* your page bg */
+    --bg-2:#0f1b2a;           /* your page bg darker */
+    --cyan:#7dd3fc;           /* site-like blue */
+    --teal:#34d399;           /* site-like green */
+    --text:#e6f0ff;
+    --muted:#93a4bf;
+    --ring: rgba(125,211,252,.35);
+  }
+  .festival-banner{
+    position: relative;
+    margin: clamp(16px, 2.5vw, 28px) auto;
+    width: min(1100px, 92vw);
+    border-radius: 22px;
+    background:
+      radial-gradient(1200px 400px at 80% -50%, rgba(52,211,153,.18), transparent 60%),
+      radial-gradient(900px 300px at -20% 120%, rgba(125,211,252,.20), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(125,211,252,.18);
+    box-shadow:
+      0 10px 30px rgba(0,0,0,.35),
+      inset 0 0 0 1px rgba(255,255,255,.03);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .fb-grid{
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    gap: clamp(14px, 2vw, 24px);
+    align-items: center;
+    padding: clamp(16px, 3vw, 28px);
+  }
+  /* Decorative ribbon glow */
+  .festival-banner::after{
+    content:"";
+    position:absolute; inset:-2px;
+    background: radial-gradient(150px 150px at 12% 10%, rgba(125,211,252,.25), transparent 60%),
+                radial-gradient(180px 180px at 88% 90%, rgba(52,211,153,.25), transparent 60%);
+    z-index:0; pointer-events:none;
+    filter: blur(18px);
+  }
+
+  /* Badge */
+  .fb-badge{
+    width: 92px; height: 92px; border-radius: 50%;
+    display:grid; place-items:center;
+    background: radial-gradient(circle at 30% 30%, #172033, #0e1524 60%);
+    border:1px solid rgba(125,211,252,.35);
+    box-shadow: 0 8px 24px rgba(0,0,0,.45), inset 0 0 22px rgba(125,211,252,.12);
+    position: relative; z-index:1;
+  }
+  .fb-badge svg{ width:56px; height:56px; opacity:.95; }
+
+  /* Text */
+  .fb-eyebrow{
+    color:var(--muted);
+    font: 600 13px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    letter-spacing:.16em; text-transform:uppercase;
+    margin-bottom: 4px;
+  }
+  .fb-title{
+    margin: 0;
+    line-height: .98;
+    letter-spacing: .2px;
+  }
+  .fb-title .eid{
+    font: 800 clamp(32px, 5.5vw, 64px)/.95 Inter, system-ui, sans-serif;
+    background: linear-gradient(180deg, var(--cyan), #90e0ff);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 6px 30px rgba(125,211,252,.25);
+  }
+  .fb-title .and{
+    display:inline-block; margin: 0 .35ch;
+    color:var(--muted); font-weight:600; font-size: clamp(16px, 2.2vw, 20px);
+  }
+  .fb-title .teachers{
+    font-family: "Great Vibes", ui-serif, Georgia, serif;
+    font-size: clamp(28px, 5vw, 56px);
+    background: linear-gradient(180deg, var(--teal), #8cf0c9);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 6px 26px rgba(52,211,153,.22);
+    white-space: nowrap;
+  }
+  .fb-sub{
+    margin-top: 8px;
+    color: var(--text);
+    font: 400 clamp(13px, 1.9vw, 15.5px)/1.5 Inter, system-ui, sans-serif;
+    opacity:.9;
+  }
+
+  /* CTA */
+  .fb-cta{
+    display:flex; gap:10px; align-items:center;
+  }
+  .fb-btn{
+    position: relative;
+    z-index:1;
+    display:inline-flex; align-items:center; justify-content:center;
+    padding: 10px 14px;
+    font: 600 14px/1 Inter, system-ui, sans-serif;
+    color:#031220;
+    background: linear-gradient(180deg, #aef0ff, #70d6f7);
+    border-radius: 12px;
+    border:1px solid rgba(125,211,252,.6);
+    box-shadow: 0 8px 22px rgba(125,211,252,.25);
+    cursor:pointer; text-decoration:none;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .fb-btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 28px rgba(125,211,252,.28); }
+  .fb-btn.secondary{
+    background: linear-gradient(180deg, #c9f7e7, #7fe9c6);
+    border-color: rgba(52,211,153,.6);
+    box-shadow: 0 8px 22px rgba(52,211,153,.22);
+  }
+
+  /* Close */
+  .fb-close{
+    position:absolute; top:10px; right:10px; z-index:2;
+    width:34px; height:34px; border-radius:10px;
+    display:grid; place-items:center;
+    background: rgba(8,12,22,.6);
+    border:1px solid rgba(148,163,184,.22);
+    color:#c8d7ff; cursor:pointer;
+    transition: background .2s ease, transform .1s ease;
+  }
+  .fb-close:hover{ background: rgba(8,12,22,.8); transform: translateY(-1px); }
+
+  /* Compact on small screens */
+  @media (max-width:720px){
+    .fb-grid{ grid-template-columns: 64px 1fr; }
+    .fb-cta{ grid-column: 1 / -1; justify-self: start; margin-top:10px; }
+    .fb-badge{ width:64px; height:64px; }
+    .fb-badge svg{ width:40px; height:40px; }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion:no-preference){
+    .festival-banner{ animation: fbFade .5s ease both; }
+    @keyframes fbFade{ from{ opacity:0; transform: translateY(8px);} to{ opacity:1; transform:none;} }
+  }
+</style>
+
+<section class="festival-banner" id="festivalBanner" role="region" aria-label="Eid and Teacher's Day wishes">
+  <button class="fb-close" id="fbClose" aria-label="Close">✕</button>
+
+  <div class="fb-grid">
+    <div class="fb-badge" aria-hidden="true">
+      <!-- Crescent + book/pen icon to match education theme -->
+      <svg viewBox="0 0 64 64" fill="none">
+        <!-- crescent -->
+        <path d="M40.5 49.5c-11 0-19.9-9-19.9-20 0-7.4 4-13.9 10-17.3-2.8 14.3 8.7 27.3 22.9 25.1-2.8 7.3-10.1 12.2-18.9 12.2z"
+              fill="url(#g1)"/>
+        <!-- open book -->
+        <path d="M10 41c5-2.2 12-2.2 17 0v8c-5-2.2-12-2.2-17 0v-8zM28 41c5-2.2 12-2.2 17 0v8c-5-2.2-12-2.2-17 0v-8z"
+              fill="url(#g2)"/>
+        <!-- pen nib -->
+        <path d="M35 26l8-3 3 8-8 3-3-8z" fill="url(#g3)"/>
+        <defs>
+          <linearGradient id="g1" x1="20" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#34d399"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="10" y1="38" x2="45" y2="53" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#90e0ff"/>
+          </linearGradient>
+          <linearGradient id="g3" x1="35" y1="23" x2="46" y2="35" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#34d399"/><stop offset="1" stop-color="#8cf0c9"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div>
+      <div class="fb-eyebrow">Wishing you peace, knowledge, and growth</div>
+      <h2 class="fb-title">
+        <span class="eid">Eid&nbsp;Mubarak</span>
+        <span class="and">&amp;</span>
+        <span class="teachers">Happy Teacher’s Day</span>
+      </h2>
+      <p class="fb-sub">From NexGen Digital Coaching & Computer Institute, Bachhrawan · Scholarships, AC study room, Wi-Fi, and monthly online tests.</p>
+    </div>
+
+    <div class="fb-cta">
+      <a href="https://wa.me/###########" class="fb-btn">WhatsApp us</a>
+      <a href="tel:###########" class="fb-btn secondary">Call now</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Dismiss + remember for 7 days
+  (function(){
+    var key = "fb-dismissed-2025-09";
+    var banner = document.getElementById("festivalBanner");
+    var btn = document.getElementById("fbClose");
+
+    try{
+      var saved = localStorage.getItem(key);
+      if(saved && Date.now() - Number(saved) < 7*24*60*60*1000){
+        banner.style.display = "none";
+      }
+      btn.addEventListener("click", function(){
+        banner.style.display = "none";
+        try{ localStorage.setItem(key, Date.now().toString()); }catch(e){}
+      });
+    }catch(e){}
+  })();
+</script>
+<!-- ===== End Festival Banner ===== -->
 
 
 
