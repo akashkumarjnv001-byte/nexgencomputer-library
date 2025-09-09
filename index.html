@@ -14,220 +14,202 @@
   <title>NexGen Digital Coaching</title>
 </head>
 <body>
-<!-- ===== Festival Banner: Eid + Teacher's Day ===== -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Raining Holiday 3D Ad</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body { height:100%; margin:0; }
+    #ad-root { width:100%; height:100%; position:relative; overflow:hidden; background:#101317; }
+    canvas { display:block; width:100%; height:100%; }
 
-<style>
-  :root{
-    /* tweak to match your palette */
-    --bg-1:#0b1220;           /* your page bg */
-    --bg-2:#0f1b2a;           /* your page bg darker */
-    --cyan:#7dd3fc;           /* site-like blue */
-    --teal:#34d399;           /* site-like green */
-    --text:#e6f0ff;
-    --muted:#93a4bf;
-    --ring: rgba(125,211,252,.35);
-  }
-  .festival-banner{
-    position: relative;
-    margin: clamp(16px, 2.5vw, 28px) auto;
-    width: min(1100px, 92vw);
-    border-radius: 22px;
-    background:
-      radial-gradient(1200px 400px at 80% -50%, rgba(52,211,153,.18), transparent 60%),
-      radial-gradient(900px 300px at -20% 120%, rgba(125,211,252,.20), transparent 60%),
-      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(125,211,252,.18);
-    box-shadow:
-      0 10px 30px rgba(0,0,0,.35),
-      inset 0 0 0 1px rgba(255,255,255,.03);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .fb-grid{
-    display: grid;
-    grid-template-columns: 92px 1fr auto;
-    gap: clamp(14px, 2vw, 24px);
-    align-items: center;
-    padding: clamp(16px, 3vw, 28px);
-  }
-  /* Decorative ribbon glow */
-  .festival-banner::after{
-    content:"";
-    position:absolute; inset:-2px;
-    background: radial-gradient(150px 150px at 12% 10%, rgba(125,211,252,.25), transparent 60%),
-                radial-gradient(180px 180px at 88% 90%, rgba(52,211,153,.25), transparent 60%);
-    z-index:0; pointer-events:none;
-    filter: blur(18px);
-  }
+    /* CTA overlay */
+    .cta {
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      background:linear-gradient(180deg,#ffb74d,#ff8a00);
+      color:#111;
+      font-weight:700;
+      padding:12px 18px;
+      border-radius:30px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.35);
+      cursor:pointer;
+      user-select:none;
+      font-family:Arial, Helvetica, sans-serif;
+      text-decoration:none;
+    }
+    .ad-text {
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      color:#fff;
+      font-family:Inter, Arial;
+      text-shadow:0 4px 12px rgba(0,0,0,0.5);
+      max-width:60%;
+    }
+    .headline { font-size:20px; font-weight:700; margin:0 0 6px 0; }
+    .sub { font-size:13px; opacity:0.9; margin:0; }
 
-  /* Badge */
-  .fb-badge{
-    width: 92px; height: 92px; border-radius: 50%;
-    display:grid; place-items:center;
-    background: radial-gradient(circle at 30% 30%, #172033, #0e1524 60%);
-    border:1px solid rgba(125,211,252,.35);
-    box-shadow: 0 8px 24px rgba(0,0,0,.45), inset 0 0 22px rgba(125,211,252,.12);
-    position: relative; z-index:1;
-  }
-  .fb-badge svg{ width:56px; height:56px; opacity:.95; }
-
-  /* Text */
-  .fb-eyebrow{
-    color:var(--muted);
-    font: 600 13px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    letter-spacing:.16em; text-transform:uppercase;
-    margin-bottom: 4px;
-  }
-  .fb-title{
-    margin: 0;
-    line-height: .98;
-    letter-spacing: .2px;
-  }
-  .fb-title .eid{
-    font: 800 clamp(32px, 5.5vw, 64px)/.95 Inter, system-ui, sans-serif;
-    background: linear-gradient(180deg, var(--cyan), #90e0ff);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    text-shadow: 0 6px 30px rgba(125,211,252,.25);
-  }
-  .fb-title .and{
-    display:inline-block; margin: 0 .35ch;
-    color:var(--muted); font-weight:600; font-size: clamp(16px, 2.2vw, 20px);
-  }
-  .fb-title .teachers{
-    font-family: "Great Vibes", ui-serif, Georgia, serif;
-    font-size: clamp(28px, 5vw, 56px);
-    background: linear-gradient(180deg, var(--teal), #8cf0c9);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    text-shadow: 0 6px 26px rgba(52,211,153,.22);
-    white-space: nowrap;
-  }
-  .fb-sub{
-    margin-top: 8px;
-    color: var(--text);
-    font: 400 clamp(13px, 1.9vw, 15.5px)/1.5 Inter, system-ui, sans-serif;
-    opacity:.9;
-  }
-
-  /* CTA */
-  .fb-cta{
-    display:flex; gap:10px; align-items:center;
-  }
-  .fb-btn{
-    position: relative;
-    z-index:1;
-    display:inline-flex; align-items:center; justify-content:center;
-    padding: 10px 14px;
-    font: 600 14px/1 Inter, system-ui, sans-serif;
-    color:#031220;
-    background: linear-gradient(180deg, #aef0ff, #70d6f7);
-    border-radius: 12px;
-    border:1px solid rgba(125,211,252,.6);
-    box-shadow: 0 8px 22px rgba(125,211,252,.25);
-    cursor:pointer; text-decoration:none;
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .fb-btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 28px rgba(125,211,252,.28); }
-  .fb-btn.secondary{
-    background: linear-gradient(180deg, #c9f7e7, #7fe9c6);
-    border-color: rgba(52,211,153,.6);
-    box-shadow: 0 8px 22px rgba(52,211,153,.22);
-  }
-
-  /* Close */
-  .fb-close{
-    position:absolute; top:10px; right:10px; z-index:2;
-    width:34px; height:34px; border-radius:10px;
-    display:grid; place-items:center;
-    background: rgba(8,12,22,.6);
-    border:1px solid rgba(148,163,184,.22);
-    color:#c8d7ff; cursor:pointer;
-    transition: background .2s ease, transform .1s ease;
-  }
-  .fb-close:hover{ background: rgba(8,12,22,.8); transform: translateY(-1px); }
-
-  /* Compact on small screens */
-  @media (max-width:720px){
-    .fb-grid{ grid-template-columns: 64px 1fr; }
-    .fb-cta{ grid-column: 1 / -1; justify-self: start; margin-top:10px; }
-    .fb-badge{ width:64px; height:64px; }
-    .fb-badge svg{ width:40px; height:40px; }
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion:no-preference){
-    .festival-banner{ animation: fbFade .5s ease both; }
-    @keyframes fbFade{ from{ opacity:0; transform: translateY(8px);} to{ opacity:1; transform:none;} }
-  }
-</style>
-
-<section class="festival-banner" id="festivalBanner" role="region" aria-label="Eid and Teacher's Day wishes">
-  <button class="fb-close" id="fbClose" aria-label="Close">✕</button>
-
-  <div class="fb-grid">
-    <div class="fb-badge" aria-hidden="true">
-      <!-- Crescent + book/pen icon to match education theme -->
-      <svg viewBox="0 0 64 64" fill="none">
-        <!-- crescent -->
-        <path d="M40.5 49.5c-11 0-19.9-9-19.9-20 0-7.4 4-13.9 10-17.3-2.8 14.3 8.7 27.3 22.9 25.1-2.8 7.3-10.1 12.2-18.9 12.2z"
-              fill="url(#g1)"/>
-        <!-- open book -->
-        <path d="M10 41c5-2.2 12-2.2 17 0v8c-5-2.2-12-2.2-17 0v-8zM28 41c5-2.2 12-2.2 17 0v8c-5-2.2-12-2.2-17 0v-8z"
-              fill="url(#g2)"/>
-        <!-- pen nib -->
-        <path d="M35 26l8-3 3 8-8 3-3-8z" fill="url(#g3)"/>
-        <defs>
-          <linearGradient id="g1" x1="20" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#34d399"/>
-          </linearGradient>
-          <linearGradient id="g2" x1="10" y1="38" x2="45" y2="53" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#90e0ff"/>
-          </linearGradient>
-          <linearGradient id="g3" x1="35" y1="23" x2="46" y2="35" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#34d399"/><stop offset="1" stop-color="#8cf0c9"/>
-          </linearGradient>
-        </defs>
-      </svg>
+    /* Small responsive tweaks */
+    @media (max-width:480px){
+      .headline { font-size:16px; }
+      .sub { font-size:12px; }
+      .cta { padding:10px 14px; font-size:14px; right:12px; bottom:12px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="ad-root">
+    <div class="ad-text">
+      <div class="headline">Rainy-day Holiday — Save 25%</div>
+      <div class="sub">Escape the grey. Cozy stays, warm memories.</div>
     </div>
-
-    <div>
-      <div class="fb-eyebrow">Wishing you peace, knowledge, and growth</div>
-      <h2 class="fb-title">
-        <span class="eid">Eid&nbsp;Mubarak</span>
-        <span class="and">&amp;</span>
-        <span class="teachers">Happy Teacher’s Day</span>
-      </h2>
-      <p class="fb-sub">From NexGen Digital Coaching & Computer Institute, Bachhrawan · Scholarships, AC study room, Wi-Fi, and monthly online tests.</p>
-    </div>
-
-    <div class="fb-cta">
-      <a href="https://wa.me/8052504508" class="fb-btn">WhatsApp us</a>
-      <a href="tel:8052504508" class="fb-btn secondary">Call now</a>
-    </div>
+    <a class="cta" id="cta">Book Now</a>
   </div>
-</section>
 
-<script>
-  // Dismiss + remember for 7 days
+  <!-- Three.js from CDN -->
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
+  <script>
   (function(){
-    var key = "fb-dismissed-2025-09";
-    var banner = document.getElementById("festivalBanner");
-    var btn = document.getElementById("fbClose");
+    const root = document.getElementById('ad-root');
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x0f1113, 0.05);
 
-    try{
-      var saved = localStorage.getItem(key);
-      if(saved && Date.now() - Number(saved) < 7*24*60*60*1000){
-        banner.style.display = "none";
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(root.clientWidth, root.clientHeight);
+    root.appendChild(renderer.domElement);
+
+    const camera = new THREE.PerspectiveCamera(35, root.clientWidth / root.clientHeight, 0.1, 100);
+    camera.position.set(0, 1.8, 4);
+
+    // Soft ambient + warm key light
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    const key = new THREE.DirectionalLight(0xfff1d6, 0.9);
+    key.position.set(3, 5, 2);
+    scene.add(key);
+
+    // Ground plane
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(12, 12),
+      new THREE.MeshStandardMaterial({ color:0x0b1020, roughness:0.9 })
+    );
+    ground.rotation.x = -Math.PI/2;
+    ground.position.y = 0;
+    scene.add(ground);
+
+    // Simple umbrella (hemisphere + handle)
+    const umbrella = new THREE.Group();
+
+    const canopy = new THREE.Mesh(
+      new THREE.SphereGeometry(1.2, 32, 16, 0, Math.PI*2, 0, Math.PI/2),
+      new THREE.MeshStandardMaterial({ color:0xd94f57, metalness:0.05, roughness:0.6 })
+    );
+    canopy.position.y = 1.2;
+    canopy.scale.set(1,0.55,1);
+    umbrella.add(canopy);
+
+    const handle = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.035,0.035,1.1,12),
+      new THREE.MeshStandardMaterial({ color:0x3b2f24 })
+    );
+    handle.position.y = 0.5;
+    umbrella.add(handle);
+
+    umbrella.position.x = -0.6;
+    umbrella.position.z = 0;
+    scene.add(umbrella);
+
+    // Small suitcase box for holiday vibe
+    const box = new THREE.Mesh(
+      new THREE.BoxGeometry(0.7,0.45,0.45),
+      new THREE.MeshStandardMaterial({ color:0x6fa3ff, roughness:0.6 })
+    );
+    box.position.set(0.8,0.225,0.25);
+    scene.add(box);
+
+    // Floating soft light to simulate warm lamp
+    const lamp = new THREE.PointLight(0xffd1a9, 0.6, 6);
+    lamp.position.set(-0.4,1.6,1.2);
+    scene.add(lamp);
+
+    // Rain particles
+    const RAIN_COUNT = 550;
+    const rainGeo = new THREE.BufferGeometry();
+    const pos = new Float32Array(RAIN_COUNT * 3);
+    const velocities = new Float32Array(RAIN_COUNT);
+
+    for(let i=0;i<RAIN_COUNT;i++){
+      pos[i*3 + 0] = (Math.random() - 0.5) * 8;
+      pos[i*3 + 1] = Math.random() * 6 + 1; // start height
+      pos[i*3 + 2] = (Math.random() - 0.5) * 6;
+      velocities[i] = 0.02 + Math.random()*0.06;
+    }
+    rainGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    rainGeo.setAttribute('vel', new THREE.BufferAttribute(velocities, 1));
+
+    const rainMat = new THREE.PointsMaterial({ size:0.06, transparent:true, opacity:0.8 });
+    const rain = new THREE.Points(rainGeo, rainMat);
+    scene.add(rain);
+
+    // subtle camera motion
+    let clock = new THREE.Clock();
+
+    function animate(){
+      const dt = clock.getDelta();
+      // Update rain
+      const positions = rainGeo.attributes.position.array;
+      const velocitiesAttr = rainGeo.attributes.vel.array;
+      for(let i=0;i<RAIN_COUNT;i++){
+        positions[i*3 + 1] -= velocitiesAttr[i] * (1 + Math.sin(clock.elapsedTime*0.6)*0.2);
+        positions[i*3 + 0] += Math.sin(clock.elapsedTime*0.7 + i) * 0.002; // wind drift
+        if(positions[i*3 + 1] < 0){
+          positions[i*3 + 1] = Math.random()*6 + 4;
+          positions[i*3 + 0] = (Math.random()-0.5)*8;
+          positions[i*3 + 2] = (Math.random()-0.5)*6;
+        }
       }
-      btn.addEventListener("click", function(){
-        banner.style.display = "none";
-        try{ localStorage.setItem(key, Date.now().toString()); }catch(e){}
-      });
-    }catch(e){}
+      rainGeo.attributes.position.needsUpdate = true;
+
+      // small umbrella bob
+      umbrella.rotation.y = Math.sin(clock.elapsedTime*0.4)*0.08;
+      umbrella.position.y = 0.02 * Math.sin(clock.elapsedTime*0.7);
+
+      // box subtle tilt
+      box.rotation.y = 0.07 * Math.sin(clock.elapsedTime*0.3);
+
+      // camera slow dolly and look
+      camera.position.x = Math.sin(clock.elapsedTime*0.06)*0.18;
+      camera.position.y = 1.7 + Math.sin(clock.elapsedTime*0.13)*0.03;
+      camera.lookAt(0,1,0);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // handle resize
+    window.addEventListener('resize', ()=> {
+      renderer.setSize(root.clientWidth, root.clientHeight);
+      camera.aspect = root.clientWidth/root.clientHeight;
+      camera.updateProjectionMatrix();
+    });
+
+    // CTA click
+    document.getElementById('cta').addEventListener('click', function(e){
+      // replace with real tracking / link
+      window.location.href = '/holiday-deals?utm_source=ad';
+    });
+
   })();
-</script>
-<!-- ===== End Festival Banner ===== -->
+  </script>
+</body>
+</html>
+
 
 
 
